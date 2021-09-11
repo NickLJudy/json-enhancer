@@ -1,0 +1,43 @@
+{
+  "name": "json-enhancer",
+  "version": "1.0.0",
+  "description": "Extension JavaScript native parser for ES new features.",
+  "main": "lib/json-enhancer.js",
+  "unpkg": "dist/json-enhancer.js",
+  "module": "esm/json-enhancer.js",
+  "types": "src/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "lib",
+    "esm",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickLJudy/json-enhancer.git"
+  },
+  "author": "galenyoung",
+  "keywords": [
+    "js",
+    "json",
+    "ES6",
+    "json parser",
+    "json enhancer",
+    "decodeJSON",
+    "encodeJSON"
+  ],
+  "license": "ISC",
+  "sideEffects": false,
+  "bugs": {
+    "url": "https://github.com/NickLJudy/json-enhancer/issues"
+  },
+  "homepage": "https://github.com/NickLJudy/json-enhancer#readme",
+  "devDependencies": {
+    "rollup": "^2.56.3",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

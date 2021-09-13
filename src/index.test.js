@@ -96,7 +96,7 @@ describe('combination:encodeJSON + decodeJSON', () => {
     expect(objCopy.fn(1, 2)).toBe(3);
   })
 
-  test('should ', () => {
+  test('Large number of multiple data', () => {
     const bigNumStr = 9007199254740990;
     const bigNumDecimalStr = '9007199254740997.2';
     const obj = { bigNumStr, bigNumDecimalStr};

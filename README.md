@@ -63,6 +63,7 @@ decodeJSON(encodeJSON(obj));  //{b: '10'}
 const b = 10n;
 const s = new Set([b,'a',1,'10',2,10,]);
 
+//If the set contains bigInt, json-enhancer parses the value as a numeric string. If the set contains the same numeric string, only one value is retained.
 decodeJSON(encodeJSON(s));  //Set(5) {'10', 'a', 1, 2, 10}
 
 /* Symbol */
@@ -88,7 +89,6 @@ If the value of plain object is **null** / **undefiend** / **NaN**, it will be d
 **Bigint** parsing is supported, using string representation.
 
 Support **Set** data type resolution.
-* If the set contains bigInt, json-enhancer parses the value as a numeric string. If the set contains the same numeric string, only one value is retained.
 
 **Symbol** is passed to json-enhancer as a value that will be redeclared after parsing.
 

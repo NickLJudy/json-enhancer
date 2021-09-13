@@ -3,11 +3,11 @@
 Extension JavaScript native parser for ES new features.
 
 [![Build Status](https://travis-ci.com/NickLJudy/json-enhancer.svg?branch=main)](https://travis-ci.com/NickLJudy/json-enhancer)
+[![Coverage Status](https://coveralls.io/repos/github/NickLJudy/json-enhancer/badge.svg)](https://coveralls.io/github/NickLJudy/json-enhancer)
 [![Version](https://img.shields.io/npm/v/json-enhancer.svg?maxAge=300&label=version&colorB=007ec6&maxAge=300)](./package.json)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/json-enhancer)](https://bundlephobia.com/package/json-enhancer)
 ![dependencies-logo](https://status.david-dm.org/gh/NickLJudy/json-enhancer.svg)
 ![last-commit-date-logo](https://img.shields.io/github/last-commit/NickLJudy/json-enhancer)
-<!-- [![Coverage Status](https://coveralls.io/repos/github/NickLJudy/json-enhancer/badge.svg)](https://coveralls.io/github/NickLJudy/json-enhancer) -->
 ## Installation
 
 The json-enhancer package lives in [npm](https://www.npmjs.com/get-npm). To install the latest stable version, run the following command:

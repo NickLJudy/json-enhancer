@@ -9,7 +9,7 @@ export default [
   //CommonJS
   {
     input,
-    output: { file: 'lib/json-enhancer.js', format: 'cjs', indent: false },
+    output: { file: 'lib/json-enhancer.cjs', format: 'cjs', indent: false },
     external,
     plugins,
   },

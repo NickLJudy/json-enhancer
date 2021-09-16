@@ -5,6 +5,7 @@ const Types = [
   'regexp',
   'set',
   'symbol',
+  'undefined',
 ].reduce((acc, cur) => {
   acc[cur] = `[@@EnhancerJSON/${cur.toUpperCase()}]`;
   return acc;
@@ -63,6 +64,8 @@ export function decodeJSON(param) {
   const result = JSON.parse(
     _innerParam,
     function (key, value) {
+      if (value === null) return undefined;
+
       if (typeof value !== 'string') return value;
 
       if (value.startsWith(Types.function)) {
@@ -89,6 +92,10 @@ export function decodeJSON(param) {
         return Symbol(value.slice(Types.symbol.length));
       }
 
+      if (value.startsWith(Types.undefined)) {
+        return undefined;
+      }
+
       return value;
     });
 
@@ -102,7 +109,10 @@ export function encodeJSON(p) {
 
   return JSON.stringify(param, function (key, value) {
     if (typeof value === 'function') return Types['function'] + value.toString();
-
+    if (
+      value === null ||
+      value === undefined ||
+      Number.isNaN(value)) return value = Types['undefined'] + 'undefined';
     if (isISOString(value)) return Types['date'] + Date.parse(value);
 
     if (typeof value === 'bigint') return String(value);

@@ -41,6 +41,14 @@ describe('combination:encodeJSON + decodeJSON', () => {
     ).toEqual(targetObj);
   });
 
+  test('null, undefined, NaN are unified undefined', () => {
+    const arr = [null, NaN, undefined, 'null', 1, 'NaN', 'undefined'];
+
+    expect(
+      decodeJSON(encodeJSON(arr))
+    ).toEqual([undefined, undefined, undefined, 'null', 1, 'NaN', 'undefined']);
+  });
+
   test('Regular expression', () => {
     const reg = new RegExp('ab+c', 'i');
     const regCopy = decodeJSON(encodeJSON(reg));

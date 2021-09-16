@@ -84,6 +84,8 @@ Solve the problem of **big number** precision loss, using string representation.
 
 If the value of plain object is **null** / **undefiend** / **NaN**, it will be discarded.
 
+**null**,**undefiend**,**NaN** will be treated as **undefined**. 
+
 **Regular expression** parsing is supported.
 
 **Bigint** parsing is supported, using string representation.

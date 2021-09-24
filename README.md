@@ -66,6 +66,28 @@ const s = new Set([b,'a',1,'10',2,10,]);
 //If the set contains bigInt, json-enhancer parses the value as a numeric string. If the set contains the same numeric string, only one value is retained.
 decodeJSON(encodeJSON(s));  //Set(5) {'10', 'a', 1, 2, 10}
 
+
+/* Map */
+let myMap = new Map();
+
+let keyObj = {};
+let keyString = 'a string';
+let keyNull = null;
+
+myMap.set(keyString, "value associated with 'a string'");
+myMap.set(keyObj, 'value associated with keyObj');
+myMap.set(keyNull, 'value associated with keyNull');
+
+const targetMap = decodeJSON(encodeJSON(myMap)); 
+/*     
+targetMap:
+    Map(3) {
+      'a string' => "value associated with 'a string'",
+      {} => 'value associated with keyObj',
+      undefined => 'value associated with keyNull'
+    } 
+*/
+
 /* Symbol */
 const sym = Symbol('foo');
 const obj = {sym};
@@ -90,12 +112,12 @@ If the value of plain object is **null** / **undefiend** / **NaN**, it will be d
 
 **Bigint** parsing is supported, using string representation.
 
-Support **Set** data type resolution.
+Support **Set** and **Map** data type resolution.
 
 **Symbol** is passed to json-enhancer as a value that will be redeclared after parsing.
 
 ## Notice
 
-Map, WeakMap and WeakSet will not be handled.
+WeakMap and WeakSet will not be handled.
 
 Symbol as the key in the plain object will be omitted.

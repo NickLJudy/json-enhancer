@@ -4,6 +4,7 @@ const Types = [
   'bignumber',
   'regexp',
   'set',
+  'map',
   'symbol',
   'undefined',
 ].reduce((acc, cur) => {
@@ -88,6 +89,10 @@ export function decodeJSON(param) {
         return new Set(decodeJSON(value.slice(Types.set.length)));
       }
 
+      if (value.startsWith(Types.map)) {
+        return new Map(decodeJSON(value.slice(Types.map.length)));
+      }
+
       if (value.startsWith(Types.symbol)) {
         return Symbol(value.slice(Types.symbol.length));
       }
@@ -120,6 +125,8 @@ export function encodeJSON(p) {
     if (value instanceof RegExp) return Types['regexp'] + String(value).split('/').splice(1).join(',');
 
     if (value instanceof Set) return Types['set'] + encodeJSON([...value]);
+
+    if (value instanceof Map) return Types['map'] + encodeJSON([...value]);
 
     if (typeof value === 'symbol') return Types['symbol'] + value.description;
     return value;

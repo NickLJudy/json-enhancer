@@ -77,6 +77,27 @@ describe('combination:encodeJSON + decodeJSON', () => {
     ).toEqual(targetS);
   });
 
+  test('Map', () => {
+    let myMap = new Map();
+
+    let keyObj = {};
+    let keyString = 'a string';
+    let keyNull = null;
+
+    myMap.set(keyString, "value associated with 'a string'");
+    myMap.set(keyObj, 'value associated with keyObj');
+    myMap.set(keyNull, 'value associated with keyNull');
+
+    const targetMap = new Map();
+    targetMap.set(keyString, "value associated with 'a string'");
+    targetMap.set(keyObj, 'value associated with keyObj');
+    targetMap.set(undefined, 'value associated with keyNull');
+
+    expect(
+      decodeJSON(encodeJSON(myMap))
+    ).toEqual(targetMap);
+  });
+
   test('Symbol as value', () => {
     const sym = Symbol('foo');
     const obj = { sym };

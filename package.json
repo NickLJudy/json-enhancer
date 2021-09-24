@@ -1,6 +1,6 @@
 {
   "name": "json-enhancer",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Extension JavaScript native parser for ES new features.",
   "main": "lib/json-enhancer.cjs",
   "unpkg": "dist/json-enhancer.js",

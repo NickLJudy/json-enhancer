@@ -78,7 +78,8 @@ myMap.set(keyString, "value associated with 'a string'");
 myMap.set(keyObj, 'value associated with keyObj');
 myMap.set(keyNull, 'value associated with keyNull');
 
-const targetMap = decodeJSON(encodeJSON(myMap)); 
+const targetMap = decodeJSON(encodeJSON(myMap));
+ 
 /*     
 targetMap:
     Map(3) {

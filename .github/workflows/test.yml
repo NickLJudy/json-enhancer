@@ -1,0 +1,30 @@
+name: Test
+on: 
+  push:
+    branches:
+      - main
+      - next
+  pull_request:
+    branches:
+      - main
+      - next
+jobs:
+  TestSuite:
+    name: Ready for Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment ⌛
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies 🔧
+        run: |
+          npm ci
+          npm run build
+
+      - name: Run Test 🚀
+        run: npm test

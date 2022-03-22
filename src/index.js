@@ -40,13 +40,11 @@ function removeUselessProps(p) {
   return Reflect.ownKeys(p).reduce((acc, key) => {
     const val = p[key];
 
-    if (val !== undefined &&
-      val !== null &&
-      !Number.isNaN(val)) acc[key] = removeUselessProps(val);
+    if (val !== undefined && val !== null && !Number.isNaN(val)) acc[key] = removeUselessProps(val);
 
     return acc;
   }, {})
-}
+};
 
 export function decodeJSON(param) {
   if (typeof param !== 'string') throw new Error('Non-strings cannot be parsed.');
